@@ -3,10 +3,10 @@ http = require('http'),
 app = express(),
 server = http.createServer(app),
 io = require('socket.io').listen(server),
-port = process.env.PORT || 3000;;
+port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-    res.send('Chat Server is running on port 3000')
+    res.send('Chat Server is running on port '+port)
 });
 
 io.on('connection', (socket) => {
@@ -30,6 +30,6 @@ io.on('connection', (socket) => {
 
 })
 
-server.listen(3000,()=>{
-    console.log('Node app is running on port 3000')
+server.listen(port,()=>{
+    console.log('Node app is running on port '+port)
 })
