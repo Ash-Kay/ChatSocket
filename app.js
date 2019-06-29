@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
     socket.on('messagedetection', (senderNickname,messageContent) => {
         console.log(senderNickname+" : " +messageContent)
         let  message = {"message":messageContent, "senderNickname":senderNickname}
-        io.emit('message', message )
+        io.to(roomId).emit('message', message )
     })
 
     socket.on('disconnect', function() {
