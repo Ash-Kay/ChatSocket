@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('userjoinedthechat',userNickname +" : has joined the chat server ");
     })
 
-    socket.on('messagedetection', (senderNickname,messageContent) => {
+    socket.on('messagedetection', (senderNickname,messageContent,roomId) => {
         console.log(senderNickname+" : " +messageContent)
         let  message = {"message":messageContent, "senderNickname":senderNickname}
         io.to(roomId).emit('message', message )
