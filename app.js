@@ -14,6 +14,7 @@ io.on('connection', (socket) => {
 
     socket.on('join-room', function(roomId) {
         console.log(roomId +" : has been joined by someone"  );
+        socket.join(room);
         io.to(roomId).emit(" someone joined ")
     })
 
